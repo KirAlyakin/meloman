@@ -746,6 +746,7 @@ const PubQuizModule: React.FC<PubQuizModuleProps> = ({ theme, onSetTheme, onBack
                     placeholder="🔍 Поиск..."
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
+                    aria-label="Поиск квизов"
                     style={{ ...inputStyle, width: 'clamp(150px, 20vw, 220px)', minHeight: '44px' }}
                   />
                   <label style={{ 
@@ -815,10 +816,16 @@ const PubQuizModule: React.FC<PubQuizModuleProps> = ({ theme, onSetTheme, onBack
                       </div>
                       <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
                         <button onClick={(e) => { e.stopPropagation(); setEditingGame(game); setViewMode('editor'); }} 
+                          aria-label={`Редактировать квиз "${game.name}"`}
+                          title="Редактировать"
                           style={{ ...btnSecondary, fontSize: '0.85rem', padding: '8px 14px', minHeight: '44px' }}>✏️</button>
                         <button onClick={(e) => { e.stopPropagation(); handleExportGame(game); }} 
-                          style={{ ...btnSecondary, fontSize: '0.85rem', padding: '8px 14px', minHeight: '44px' }} title="Экспорт">📤</button>
+                          aria-label={`Экспортировать квиз "${game.name}"`}
+                          title="Экспортировать"
+                          style={{ ...btnSecondary, fontSize: '0.85rem', padding: '8px 14px', minHeight: '44px' }}>📤</button>
                         <button onClick={(e) => { e.stopPropagation(); handleDeleteGame(game.id); }} 
+                          aria-label={`Удалить квиз "${game.name}"`}
+                          title="Удалить"
                           style={{ ...btnSecondary, fontSize: '0.85rem', padding: '8px 14px', color: ds.accentDanger, minHeight: '44px' }}>🗑️</button>
                         <button onClick={(e) => { e.stopPropagation(); handleSelectGame(game); }} 
                           style={{ ...btnGradient, fontSize: '0.85rem', padding: '8px 16px', marginLeft: 'auto', minHeight: '44px' }}>Играть →</button>
@@ -866,6 +873,8 @@ const PubQuizModule: React.FC<PubQuizModuleProps> = ({ theme, onSetTheme, onBack
                         <button
                           key={icon}
                           onClick={() => { setWaitingIcon(icon); localStorage.setItem('melomania_waiting_icon', icon); }}
+                          aria-label={`Выбрать иконку ожидания ${icon}`}
+                          aria-pressed={waitingIcon === icon}
                           style={{
                             width: 44, height: 44, borderRadius: 10,
                             background: waitingIcon === icon ? ds.gradientBrand : ds.bgTertiary,
@@ -944,6 +953,8 @@ const PubQuizModule: React.FC<PubQuizModuleProps> = ({ theme, onSetTheme, onBack
                           />
                           <button 
                             onClick={() => removeTeam(team.id)} 
+                            aria-label={`Удалить команду "${team.name}"`}
+                            title="Удалить команду"
                             style={{ 
                               background: 'none', 
                               border: 'none', 

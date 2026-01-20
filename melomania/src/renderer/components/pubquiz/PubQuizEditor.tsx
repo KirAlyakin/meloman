@@ -90,18 +90,19 @@ const FilePicker: React.FC<FilePickerProps> = ({
             }} title={value}>
               {fileName}
             </span>
-            <button
-              onClick={() => onChange('')}
-              style={{ 
-                background: 'none', 
-                border: 'none', 
-                color: colors.incorrect, 
-                cursor: 'pointer',
-                padding: '2px 6px',
-                fontSize: '0.8rem'
-              }}
-              title="Удалить"
-            >
+              <button
+                onClick={() => onChange('')}
+                aria-label="Удалить выбранный файл"
+                title="Удалить файл"
+                style={{ 
+                  background: 'none', 
+                  border: 'none', 
+                  color: colors.incorrect, 
+                  cursor: 'pointer',
+                  padding: '2px 6px',
+                  fontSize: '0.8rem'
+                }}
+              >
               ✕
             </button>
           </>
