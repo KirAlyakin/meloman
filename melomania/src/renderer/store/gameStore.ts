@@ -300,7 +300,7 @@ export const useGameStore = create<GameStore>((set, get) => ({
     set({
       currentQuestion: { 
         ...currentQuestion, 
-        auctionBets: { ...auctionBets, [teamId]: Math.min(5, Math.max(1, amount)) }
+        auctionBets: { ...auctionBets, [teamId]: Math.min(5, Math.max(0, amount)) }
       }
     });
   },

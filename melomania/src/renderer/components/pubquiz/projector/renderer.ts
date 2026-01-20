@@ -1033,7 +1033,7 @@ export const renderProjector = (data: ProjectorData): string => {
           <div class="media-player">
             <audio id="q-audio" src="${src}" preload="auto"></audio>
             <div class="media-icon">🎵</div>
-            <div class="media-label">Аудио вопрос</div>
+            <div class="media-label">Аудио-вопрос</div>
           </div>`;
       } else if (round?.type === 'video') {
         // Видео с поддержкой startTime/endTime (управление с панели ведущего)
